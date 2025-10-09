@@ -1,5 +1,7 @@
 # SolidLingua - SolidStart i18n Template
 
+[![Template](https://img.shields.io/badge/Template-Ready-blue)](https://github.com/PixelP4radise/SolidLingua/generate)
+
 A Starter Template for [SolidStart](https://docs.solidjs.com/solid-start) that comes pre-configured with internationalization (i18n) support and language-based routing.
 
 This template provides a clean foundation for projects that need multilingual support with route parameters such as `/en/...` or `/pt/...` , etc.
@@ -11,11 +13,12 @@ This template provides a clean foundation for projects that need multilingual su
   - [✨ Features](#-features)
     - [Project Structure](#project-structure)
   - [🚀 Getting Started](#-getting-started)
+    - [Using the template](#using-the-template)
+    - [Cloning the Repo](#cloning-the-repo)
   - [Usage](#usage)
     - [Example: Using i18n in a Component](#example-using-i18n-in-a-component)
       - [1. TypeScript Dictionary](#1-typescript-dictionary)
       - [2. Component Usage](#2-component-usage)
-      - [Explanation:](#explanation)
   - [Customization](#customization)
   - [🙏 Special Thanks](#-special-thanks)
 
@@ -67,6 +70,16 @@ This template provides a clean foundation for projects that need multilingual su
 ```
 
 ## 🚀 Getting Started
+
+### Using the template
+
+You can start a new project based on this template by clicking:
+
+[Use this template](https://github.com/PixelP4radise/SolidLingua/generate)
+
+This will create a new repository with all files pre-configured for i18n and language-based routing.
+
+### Cloning the Repo
 
 1. Clone this repo
 
@@ -128,7 +141,6 @@ export default {
 #### 2. Component Usage
 
 ```tsx
-import { Show } from "solid-js";
 import { useI18n } from "~/i18n/i18n-context";
 
 export default function LandingPage() {
@@ -136,24 +148,14 @@ export default function LandingPage() {
 
   return (
     <>
-      {/* Safe rendering with <Show>: waits until i18n.t is available */}
-      <Show when={i18n.t}>
         <h1>{i18n.t("hero.title")}</h1>
-        <button>{i18n.t("hero.button.primary")}</button>
-      </Show>
-
-      {/* Direct rendering: may cause errors if i18n.t is not ready yet */}
-      <h2>{i18n.t?.("hero.subtitle") ?? "Loading..."}</h2>
+        <button>
+            {i18n.t("hero.button.primary")}
+        </button>
     </>
   );
 }
 ```
-
-#### Explanation:
-
-- `<Show>` ensures the component only renders when i18n.t is available.
-- The second example uses optional chaining (?.) with a fallback (?? "Loading...") to avoid runtime errors.
-- This demonstrates best practices for conditionally rendering translations in SolidStart.
 
 ## Customization
 
